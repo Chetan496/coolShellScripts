@@ -11,7 +11,7 @@ But how do I simply get an inventory of all the resources deployed by Terraform?
 
 Because - tf state list works well when your TF code is simple - and not pulling tons of third party modules.
 Third party modules may not be available to be downloaded (Imagine a corporate env where only Jenkins can pull the third party modules - from say enterprise github repos)
-From your local machine you can't download these modules if your TF code runs in a Jenkins pipeline, and your may not have access to all third party modules. So tf state list has trouble getting those modules.
+From your local machine you can't download these modules if your TF code runs in a Jenkins pipeline, and you may not have access to all third party modules. So tf state list has trouble getting those modules.
 
 ## So what is my solution?
  - Download the state file from the S3 bucket (DevOps teams usually have access to the state file)
