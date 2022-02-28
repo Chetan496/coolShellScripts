@@ -12,7 +12,7 @@ do
     echo "skip"
   else
     export temp=$(echo $aws_resource_type | tr -d '",')
-    (echo -e "\n" ; jq -r --arg temp "${temp}"  '[.resources[] | select(.type==$temp)] | .[] | [ .type, .name, .instances[0].attributes.arn, .instances[0].attributes.id] |@csv' tf_application_state_uat.json | tr -d '"' ; ) >> tfResourceInventory.csv
+    (echo -e "\n" ; jq -r --arg temp "${temp}"  '[.resources[] | select(.type==$temp)] | .[] | [ .type, .name, .instances[0].attributes.arn, .instances[0].attributes.id] |@csv' $tfStateFilePath | tr -d '"' ; ) >> tfResourceInventory.csv
   fi
   
 done 
